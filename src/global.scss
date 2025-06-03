@@ -35,3 +35,97 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+body {
+  background: linear-gradient(135deg, #e3f0ff 0%, #fafcff 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+ion-content {
+  --background: transparent;
+}
+
+ion-toolbar {
+  --background: #0054e9;
+  --color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+ion-title {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+ion-button {
+  --border-radius: 20px;
+  --box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+ion-button[color="danger"] {
+  /* Rojo menos intenso y más contraste */
+  background: linear-gradient(90deg, #ff7675 0%, #fd5f5f 100%);
+  color: #fff;
+  border: 1.5px solid #c0392b;
+}
+
+ion-button[color="secondary"] {
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+  color: #fff;
+}
+
+ion-button[color="tertiary"] {
+  background: linear-gradient(90deg, #ffb347 0%, #ffcc33 100%);
+  color: #fff;
+}
+
+ion-button[color="success"] {
+  /* Verde más suave para registro */
+  background: linear-gradient(90deg, #7ed957 0%, #b6e388 100%);
+  color: #fff;
+  border: 1.5px solid #5fa860;
+}
+
+ion-input, ion-item {
+  --border-radius: 14px;
+  --background: #f4f8fb;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+ion-input {
+  padding: 8px 12px;
+}
+
+ion-list {
+  background: transparent;
+}
+
+ion-card {
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+ion-avatar img {
+  border-radius: 50%;
+  border: 2px solid #0054e9;
+}
+
+form {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+img {
+  border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+  ion-content {
+    padding: 8px !important;
+  }
+}

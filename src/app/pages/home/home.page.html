@@ -4,7 +4,28 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <p>Bienvenido: {{ email }}</p>
-  <ion-button expand="full" color="danger" (click)="logout()">Cerrar sesión</ion-button>
+<ion-content class="ion-padding home-content">
+  <div class="home-card">
+    <p style="font-size: 1.2em; color: #0054e9; font-weight: 600;">Bienvenido: {{ email }}</p>
+    <ion-button expand="block" color="danger" shape="round" (click)="logout()">Cerrar sesión</ion-button>
+  </div>
 </ion-content>
+
+<style>
+.home-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+.home-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px 24px;
+  width: 100%;
+  max-width: 370px;
+  margin: 0 auto;
+  text-align: center;
+}
+</style>

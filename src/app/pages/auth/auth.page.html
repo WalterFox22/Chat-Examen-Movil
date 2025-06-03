@@ -4,19 +4,42 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-input [(ngModel)]="email" placeholder="Email"></ion-input>
-  <ion-input [(ngModel)]="password" type="password" placeholder="Contraseña"></ion-input>
-  <ion-item>
-    <ion-label position="floating">Nombre</ion-label>
-    <ion-input [(ngModel)]="nombre"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Foto de perfil</ion-label>
-    <ion-button (click)="seleccionarFoto()">Seleccionar/Capturar</ion-button>
-  </ion-item>
-  <img *ngIf="fotoUrl" [src]="fotoUrl" style="max-width:100px;">
-  <ion-button expand="full" (click)="login()">Iniciar sesión</ion-button>
-  <ion-button expand="full" fill="outline" (click)="registrar()">Registrarse</ion-button>
-  <p *ngIf="error" style="color: red">{{ error }}</p>
+<ion-content class="ion-padding auth-content">
+  <div class="auth-card">
+    <ion-input [(ngModel)]="email" placeholder="Email" type="email"></ion-input>
+    <ion-input [(ngModel)]="password" type="password" placeholder="Contraseña"></ion-input>
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Foto de perfil</ion-label>
+      <ion-button (click)="seleccionarFoto()" color="secondary" shape="round">Seleccionar/Capturar</ion-button>
+    </ion-item>
+    <div style="text-align:center;">
+      <img *ngIf="fotoUrl" [src]="fotoUrl" style="max-width:100px; margin: 10px auto; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+    </div>
+    <ion-button expand="block" (click)="login()" color="primary" shape="round">Iniciar sesión</ion-button>
+    <ion-button expand="block" fill="outline" (click)="registrar()" color="success" shape="round">Registrarse</ion-button>
+    <p *ngIf="error" style="color: #c5000f; text-align:center; margin-top:10px;">{{ error }}</p>
+  </div>
 </ion-content>
+
+<style>
+/* Extra styles for auth page */
+.auth-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+.auth-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px 24px;
+  width: 100%;
+  max-width: 370px;
+  margin: 0 auto;
+}
+</style>

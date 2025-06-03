@@ -2,41 +2,57 @@
   <ion-toolbar>
     <ion-title>Chat</ion-title>
     <ion-buttons slot="end">
-      <ion-button color="danger" (click)="logout()">Cerrar sesión</ion-button>
+      <ion-button color="danger" shape="round" (click)="logout()">Cerrar sesión</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content class="ion-padding chat-content">
   <ion-list>
-    <ion-item *ngFor="let msg of allMessages">
+    <ion-item *ngFor="let msg of allMessages" class="chat-item">
       <ion-avatar slot="start">
         <img [src]="msg.photoUrl || 'assets/default-avatar.png'" alt="avatar" />
       </ion-avatar>
       <ion-label>
-        <h3>{{ msg.name }}</h3>
+        <h3 style="color:#0054e9; font-weight:600;">{{ msg.name }}</h3>
         <ng-container [ngSwitch]="msg.type">
-          <p *ngSwitchCase="'text'">{{ msg.text }}</p>
+          <p *ngSwitchCase="'text'" style="margin: 6px 0;">{{ msg.text }}</p>
           <ion-card *ngSwitchCase="'image'" class="image-message-card">
             <img [src]="msg.imageUrl" style="width: 100%; border-radius: 10px;">
           </ion-card>
-          <a *ngIf="msg.type === 'location'" [href]="msg.mapUrl" target="_blank">Ver ubicación</a>
-          <div *ngIf="msg.type === 'api'">
+          <a *ngIf="msg.type === 'location'" [href]="msg.mapUrl" target="_blank" style="color:#185a9d;">Ver ubicación</a>
+          <div *ngIf="msg.type === 'api'" class="api-message-card">
             <p>{{ msg.text }}</p>
             <img *ngIf="msg.apiData" [src]="msg.apiData" alt="pokemon" width="80" />
           </div>
         </ng-container>
-        <small>{{ msg.created_at | date:'short' }}</small>
+        <small style="color:#636469;">{{ msg.created_at | date:'short' }}</small>
       </ion-label>
     </ion-item>
   </ion-list>
 
-  <form (ngSubmit)="sendMessage()">
+  <form (ngSubmit)="sendMessage()" class="chat-form">
     <ion-item>
       <ion-input [(ngModel)]="newMessage" name="message" placeholder="Escribe un mensaje"></ion-input>
     </ion-item>
-    <ion-button expand="full" type="submit">Enviar</ion-button>
+    <ion-button expand="block" type="submit" color="primary" shape="round">Enviar</ion-button>
   </form>
-  <ion-button expand="full" color="secondary" (click)="enviarFoto()">Enviar Foto</ion-button>
-  <ion-button expand="full" color="tertiary" (click)="enviarUbicacion()">Enviar Ubicación</ion-button>
-  <ion-button expand="full" color="success" (click)="enviarApi()">Enviar Pokemon</ion-button>
+  <ion-button expand="block" color="secondary" shape="round" (click)="enviarFoto()">Enviar Foto</ion-button>
+  <ion-button expand="block" color="tertiary" shape="round" (click)="enviarUbicacion()">Enviar Ubicación</ion-button>
+  <ion-button expand="block" color="success" shape="round" (click)="enviarApi()">Enviar Pokemon</ion-button>
 </ion-content>
+
+<style>
+.chat-content {
+  background: transparent;
+}
+.chat-item {
+  border-radius: 16px;
+  margin-bottom: 8px;
+  background: #f4f8fb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.chat-form {
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+</style>
