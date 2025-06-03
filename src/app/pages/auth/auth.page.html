@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login / Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-input [(ngModel)]="email" placeholder="Email"></ion-input>
+  <ion-input [(ngModel)]="password" type="password" placeholder="Contraseña"></ion-input>
+  <ion-button expand="full" (click)="login()">Iniciar sesión</ion-button>
+  <ion-button expand="full" fill="outline" (click)="register()">Registrarse</ion-button>
+
+  <p *ngIf="error" style="color: red">{{ error }}</p>
+</ion-content>

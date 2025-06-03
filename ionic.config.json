@@ -1,0 +1,7 @@
+{
+  "name": "LoginSupaBase",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
