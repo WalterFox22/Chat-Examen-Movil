@@ -7,8 +7,16 @@
 <ion-content class="ion-padding">
   <ion-input [(ngModel)]="email" placeholder="Email"></ion-input>
   <ion-input [(ngModel)]="password" type="password" placeholder="Contraseña"></ion-input>
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input [(ngModel)]="nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Foto de perfil</ion-label>
+    <ion-button (click)="seleccionarFoto()">Seleccionar/Capturar</ion-button>
+  </ion-item>
+  <img *ngIf="fotoUrl" [src]="fotoUrl" style="max-width:100px;">
   <ion-button expand="full" (click)="login()">Iniciar sesión</ion-button>
-  <ion-button expand="full" fill="outline" (click)="register()">Registrarse</ion-button>
-
+  <ion-button expand="full" fill="outline" (click)="registrar()">Registrarse</ion-button>
   <p *ngIf="error" style="color: red">{{ error }}</p>
 </ion-content>

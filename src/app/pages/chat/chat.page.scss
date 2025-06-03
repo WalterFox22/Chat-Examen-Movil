@@ -1,0 +1,20 @@
+/* filepath: src/app/pages/chat/chat.page.scss */
+.image-message-card {
+  max-width: 220px;
+  margin: 8px 0;
+  background: #e0f7fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 4px;
+  img {
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+  }
+}
+.api-message-card {
+  background: #fffde7;
+  border-radius: 12px;
+  padding: 8px;
+  margin: 8px 0;
+}

@@ -6,13 +6,25 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let msg of messages">
+    <ion-item *ngFor="let msg of allMessages">
+      <ion-avatar slot="start">
+        <img [src]="msg.photoUrl || 'assets/default-avatar.png'" alt="avatar" />
+      </ion-avatar>
       <ion-label>
-        <h3>{{ msg.email }}</h3>
-        <p>{{ msg.content }}</p>
+        <h3>{{ msg.name }}</h3>
+        <ng-container [ngSwitch]="msg.type">
+          <p *ngSwitchCase="'text'">{{ msg.text }}</p>
+          <ion-card *ngSwitchCase="'image'" class="image-message-card">
+            <img [src]="msg.imageUrl" style="width: 100%; border-radius: 10px;">
+          </ion-card>
+          <a *ngIf="msg.type === 'location'" [href]="msg.mapUrl" target="_blank">Ver ubicación</a>
+          <div *ngIf="msg.type === 'api'">
+            <p>{{ msg.text }}</p>
+            <img *ngIf="msg.apiData" [src]="msg.apiData" alt="pokemon" width="80" />
+          </div>
+        </ng-container>
         <small>{{ msg.created_at | date:'short' }}</small>
       </ion-label>
     </ion-item>
@@ -24,4 +36,7 @@
     </ion-item>
     <ion-button expand="full" type="submit">Enviar</ion-button>
   </form>
+  <ion-button expand="full" color="secondary" (click)="enviarFoto()">Enviar Foto</ion-button>
+  <ion-button expand="full" color="tertiary" (click)="enviarUbicacion()">Enviar Ubicación</ion-button>
+  <ion-button expand="full" color="success" (click)="enviarApi()">Enviar Pokemon</ion-button>
 </ion-content>
